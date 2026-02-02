@@ -1,0 +1,196 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  --bg: #020617;
+  --glass: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.15);
+  --accent: #6366f1;
+  --text: #e5e7eb;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.5s, color 0.5s;
+}
+
+/* ================= THEME TOGGLE ================= */
+.toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  width: 60px;
+  height: 30px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 6px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.toggle span {
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+#theme-toggle:checked + .toggle span:first-child {
+  opacity: 0.3;
+}
+
+#theme-toggle:checked + .toggle span:last-child {
+  opacity: 1;
+}
+
+/* ================= LIGHT THEME ================= */
+#theme-toggle:checked ~ .grid-app {
+  --bg: #f8fafc;
+  --glass: rgba(0,0,0,0.05);
+  --border: rgba(0,0,0,0.15);
+  --accent: #2563eb;
+  --text: #020617;
+}
+
+/* ================= GRID LAYOUT ================= */
+.grid-app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+}
+
+/* ================= HEADER ================= */
+.header {
+  grid-area: header;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+}
+
+.header span {
+  color: var(--accent);
+}
+
+.header a {
+  margin-left: 1.2rem;
+  text-decoration: none;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+.header a:hover {
+  opacity: 1;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  grid-area: sidebar;
+  padding: 2rem;
+  background: var(--glass);
+  backdrop-filter: blur(14px);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar .label {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.sidebar li {
+  list-style: none;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.sidebar li:hover {
+  transform: translateX(6px);
+}
+
+/* ================= MAIN CONTENT ================= */
+.content {
+  grid-area: content;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* ================= HERO ================= */
+.hero {
+  background: linear-gradient(135deg, var(--accent), #22d3ee);
+  padding: 2.5rem;
+  border-radius: 20px;
+  color: #fff;
+}
+
+/* ================= CARDS ================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.8rem;
+  color: var(--accent);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(99,102,241,0.4);
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* ================= DESKTOP LAYOUT ================= */
+@media (min-width: 900px) {
+  .grid-app {
+    grid-template-areas:
+      "header header"
+      "sidebar content"
+      "footer footer";
+    grid-template-columns: 260px 1fr;
+  }
+}
