@@ -4,7 +4,7 @@ GridX Pro is a **modern, responsive dashboard layout** built using **pure HTML a
 
 ---
 
-## ✨ Features
+## Features
 
 * CSS Grid with named areas
 * Mobile-first responsive design
@@ -14,20 +14,20 @@ GridX Pro is a **modern, responsive dashboard layout** built using **pure HTML a
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 * HTML5
 * CSS3 (Grid, Flexbox, Variables, Media Queries)
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-👉 Add your GitHub Pages link here
+https://undihimavardhini.github.io/cssgrid/
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Undi Himavardhini**
 
